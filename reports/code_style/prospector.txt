@@ -1,0 +1,54 @@
+Messages
+========
+
+definitions.py
+  Line: 36
+    pylint: trailing-newlines / Trailing newlines
+
+src/features/feature_extraction.py
+  Line: 9
+    pylint: too-many-locals / Too many local variables (21/15)
+    pylint: too-many-statements / Too many statements (73/60)
+
+src/main_pipeline.py
+  Line: 90
+    pylint: logging-fstring-interpolation / Use lazy % formatting in logging functions (col 4)
+  Line: 99
+    pylint: logging-fstring-interpolation / Use lazy % formatting in logging functions (col 4)
+  Line: 109
+    pylint: logging-fstring-interpolation / Use lazy % formatting in logging functions (col 4)
+  Line: 116
+    pylint: logging-fstring-interpolation / Use lazy % formatting in logging functions (col 4)
+  Line: 146
+    pylint: logging-fstring-interpolation / Use lazy % formatting in logging functions (col 4)
+  Line: 150
+    pylint: logging-fstring-interpolation / Use lazy % formatting in logging functions (col 4)
+  Line: 161
+    pylint: logging-fstring-interpolation / Use lazy % formatting in logging functions (col 4)
+
+src/models/parameter_selection.py
+  Line: 13
+    pylint: no-else-return / Unnecessary "else" after "return" (col 8)
+  Line: 47
+    pylint: too-many-arguments / Too many arguments (6/5)
+
+src/models/threshold_tuning.py
+  Line: 40
+    pylint: too-many-locals / Too many local variables (20/15)
+  Line: 66
+    pylint: logging-fstring-interpolation / Use lazy % formatting in logging functions (col 4)
+
+
+
+Check Information
+=================
+         Started: 2021-11-08 22:54:12.367382
+        Finished: 2021-11-08 22:54:42.313361
+      Time Taken: 29.95 seconds
+       Formatter: grouped
+        Profiles: default, strictness_medium, strictness_high, strictness_veryhigh, no_doc_warnings, no_test_warnings, no_member_warnings
+      Strictness: medium
+  Libraries Used: 
+       Tools Run: dodgy, mccabe, pep8, profile-validator, pyflakes, pylint
+  Messages Found: 14
+

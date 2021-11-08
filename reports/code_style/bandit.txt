@@ -1,0 +1,195 @@
+Run started:2021-11-08 19:40:03.054460
+Files in scope (8):
+	./definitions.py (score: {SEVERITY: 0, CONFIDENCE: 0})
+	./src/data/dataframes.py (score: {SEVERITY: 0, CONFIDENCE: 0})
+	./src/data/download.py (score: {SEVERITY: 30, CONFIDENCE: 30})
+	./src/features/feature_extraction.py (score: {SEVERITY: 0, CONFIDENCE: 0})
+	./src/features/feature_selection.py (score: {SEVERITY: 0, CONFIDENCE: 0})
+	./src/main_pipeline.py (score: {SEVERITY: 0, CONFIDENCE: 0})
+	./src/models/parameter_selection.py (score: {SEVERITY: 0, CONFIDENCE: 0})
+	./src/models/threshold_tuning.py (score: {SEVERITY: 3, CONFIDENCE: 10})
+Files excluded (129):
+	./.git/COMMIT_EDITMSG
+	./.git/HEAD
+	./.git/config
+	./.git/description
+	./.git/hooks/applypatch-msg.sample
+	./.git/hooks/commit-msg.sample
+	./.git/hooks/fsmonitor-watchman.sample
+	./.git/hooks/post-update.sample
+	./.git/hooks/pre-applypatch.sample
+	./.git/hooks/pre-commit.sample
+	./.git/hooks/pre-merge-commit.sample
+	./.git/hooks/pre-push.sample
+	./.git/hooks/pre-rebase.sample
+	./.git/hooks/pre-receive.sample
+	./.git/hooks/prepare-commit-msg.sample
+	./.git/hooks/update.sample
+	./.git/index
+	./.git/info/exclude
+	./.git/logs/HEAD
+	./.git/logs/refs/heads/master
+	./.git/logs/refs/remotes/origin/HEAD
+	./.git/logs/refs/remotes/origin/master
+	./.git/objects/05/5d01572dcc92c293b7b11598b9f369d76be88b
+	./.git/objects/0b/c69dacb049a3ac8d4c8de346b0a6bfa35688d6
+	./.git/objects/0b/cd468706adcdfcae66b49dacc94d8867e30a72
+	./.git/objects/20/d76efd78e92192872502d10eb45492922eeddc
+	./.git/objects/27/e028b38297cac845f3c546f475200c83f6b0ce
+	./.git/objects/2c/635ac563201de9968b649d68f3666e80491f10
+	./.git/objects/2e/c538560e698d9ff21145caba879d444fa83a58
+	./.git/objects/3d/27ff2288584c52f853a388be437127151ff284
+	./.git/objects/41/0eb1dce364938c006c47f8b61f3e13f64c1406
+	./.git/objects/48/c2ea3c4ba6c3e45fc8a2b7eb60a871b0517c1d
+	./.git/objects/49/454e8e9c3841f6319208c4e549fb417c7626d5
+	./.git/objects/49/f2d861c21629048556bec012cb25e6a1f03970
+	./.git/objects/4c/466662e256bb9abfd9d1a2ea2f411091dcc72e
+	./.git/objects/4c/e53eb79e5804b63221205915cfff7bab11cc3d
+	./.git/objects/56/6c40923d512ca95f83b0195da9d26112ae8ce8
+	./.git/objects/5b/13df58a3526f63e84a6ccc55bd62da657eda1a
+	./.git/objects/63/927c8a8816ad79e0cd05926f3ebe77aa819293
+	./.git/objects/65/19bbbb7c5306dff68e5425379deaf33e64f5f1
+	./.git/objects/6d/3eaf772d86251db83d6911d7376af50653581f
+	./.git/objects/75/68dcbfe0cdf9d7cf0e9bb8b1022ac69f421281
+	./.git/objects/76/8ca07d4d61c143e1d652af761c567d5edfd349
+	./.git/objects/7c/b1253843da48913be7d05fbc3409d13384323d
+	./.git/objects/82/70e5f44958a0603a81da4e3766912150deb704
+	./.git/objects/86/189583eaa8236590f0739835653105642eb0e3
+	./.git/objects/89/94ab4529db646e2780ca54c0af37a42ddeb114
+	./.git/objects/8c/34dc205e6b4484d939f87734f4078acdf07135
+	./.git/objects/8c/c232cd12a9d922872cbfc3351dfd4c31bec8dc
+	./.git/objects/8d/ee892cb708a09642951fdd3256d241276c6b65
+	./.git/objects/8e/1373bd5fb37be3048356533553cc436cd709aa
+	./.git/objects/98/d3c828d5f10cf9789f1280af55ea616236efec
+	./.git/objects/9b/a45db00bfc87b685f5d355e129c97964c3cbde
+	./.git/objects/9f/fceeb7ed14abfc1a189317d16e5b132ed12ea2
+	./.git/objects/a6/0098f719d8f152c7e4c357035d41d672069d40
+	./.git/objects/ab/4b1aed0dad4f7a7d78aea1b47108e03b08db64
+	./.git/objects/ac/d8e714038bc3e9459143ec930ee7d066f92e4f
+	./.git/objects/af/3bd3f1f0f83362f5edd4121362c1e93085b51c
+	./.git/objects/af/e7b97eaad503875e3fdec097484f95786df69a
+	./.git/objects/b1/7033d51d0e668d395b17a19cf2e3752b999a84
+	./.git/objects/b2/39c81eb62deaf02f9064d56307b15a4c3f2e50
+	./.git/objects/b4/845c9d7e5a8cddbc2fdea694dcc930085a918a
+	./.git/objects/b6/beaca70fd392f1bec0d254440597152b836e20
+	./.git/objects/b8/d331dc71f39e709038c1d3e9d61e9ea361d284
+	./.git/objects/bf/43a1f6513d8fcee5123f5460bbe1b03967594d
+	./.git/objects/bf/a6a22a524852a8df1d6462f0323d20449c4e95
+	./.git/objects/d5/78662d1dd5c67c8b772c215088c2c1df306b99
+	./.git/objects/d8/5c957df73473e3caf26b7d00a80078c9cb60ec
+	./.git/objects/d9/123ed6fe41bfd830b7e74ec84f01869ae89447
+	./.git/objects/d9/acc97679dcb5be54c4856fcd6b94003efcd5a7
+	./.git/objects/da/910fcfded80bbb2fb16dd6869c55c89e6aaeaf
+	./.git/objects/de/3c086545583623d066c1014fd947ebf3caa601
+	./.git/objects/df/5aae97af9086daa94a3b3eeb375927446a15f0
+	./.git/objects/e0/87d9a7a4b953277cd4c4e465f359595b3f7bf7
+	./.git/objects/e1/5b75041c72deedf14ebe7b61e573d8f6c1725a
+	./.git/objects/e6/9de29bb2d1d6434b8b29ae775ad8c2e48c5391
+	./.git/objects/e6/bb7f3bad26646f59ed17f3c9d687ceb1382a03
+	./.git/objects/e7/43c6cc62c50c9597a9b6963a846cf738ed60e9
+	./.git/objects/ea/ca01385bbda97bca8a6fa130bf4419da5b3e17
+	./.git/objects/f1/80e1004b806e587a0f0c277684e6ddc76d6854
+	./.git/objects/f3/d9eb05141d51195a63875a0b6260ec04c800c2
+	./.git/objects/f9/d0957da8e4e350d6c36fb2f9a3de7a070663ba
+	./.git/objects/fd/918a7fddb9a6caa154cc34a41d9d4545d49d25
+	./.git/objects/fe/1e6282dcaa159520b2fdf2d43b4df27a83d1e6
+	./.git/objects/ff/44eb2def74ca3f6f828ea9a6901a59248c7ea7
+	./.git/objects/pack/pack-a56a35a99d180195ecebfea1b1f8aec820561dda.idx
+	./.git/objects/pack/pack-a56a35a99d180195ecebfea1b1f8aec820561dda.pack
+	./.git/packed-refs
+	./.git/refs/heads/master
+	./.git/refs/remotes/origin/HEAD
+	./.git/refs/remotes/origin/master
+	./.gitignore
+	./.idea/.gitignore
+	./.idea/aws.xml
+	./.idea/inspectionProfiles/profiles_settings.xml
+	./.idea/misc.xml
+	./.idea/modules.xml
+	./.idea/pd_model_logreg.iml
+	./.idea/vcs.xml
+	./.idea/workspace.xml
+	./LICENSE
+	./README.md
+	./__pycache__/definitions.cpython-38.pyc
+	./data/prepared/prepared_test.csv
+	./data/prepared/prepared_train_with_financial_report.csv
+	./data/prepared/prepared_train_without_financial_report.csv
+	./data/raw/PD-data-desc.csv
+	./data/raw/PD-data-test.csv
+	./data/raw/PD-data-train.csv
+	./logs/logs
+	./notebooks/.ipynb_checkpoints/main-checkpoint.ipynb
+	./notebooks/PD-data-desc.csv
+	./notebooks/PD-data-test.csv
+	./notebooks/PD-data-train.csv
+	./notebooks/main.ipynb
+	./reports/bandit_report.txt
+	./reports/codestyle_report.md
+	./reports/pycodestyle
+	./reports/submit.csv
+	./reports/threshold_tuning_data_with_financial report.png
+	./reports/threshold_tuning_data_without_financial report.png
+	./requirements.txt
+	./setup.cfg
+	./src/data/__pycache__/dataframes.cpython-38.pyc
+	./src/data/__pycache__/download.cpython-38.pyc
+	./src/features/__pycache__/feature_extraction.cpython-38.pyc
+	./src/features/__pycache__/feature_selection.cpython-38.pyc
+	./src/models/__pycache__/parameter_selection.cpython-38.pyc
+	./src/models/__pycache__/threshold_tuning.cpython-38.pyc
+
+Test results:
+>> Issue: [B605:start_process_with_a_shell] Starting a process with a shell, possible injection detected, security issue.
+   Severity: High   Confidence: High
+   Location: ./src/data/download.py:15
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b605_start_process_with_a_shell.html
+14	    if rewrite or not path_train.exists():
+15	        os.system(f"wget https://raw.githubusercontent.com/BKHV/risk_models/master/data/PD-data-train.csv -P {path_raw_data}")
+16	        LOGGER.debug("Train dataframe successfully loaded.")
+
+--------------------------------------------------
+>> Issue: [B605:start_process_with_a_shell] Starting a process with a shell, possible injection detected, security issue.
+   Severity: High   Confidence: High
+   Location: ./src/data/download.py:18
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b605_start_process_with_a_shell.html
+17	    if rewrite or not path_test.exists():
+18	        os.system(f"wget https://raw.githubusercontent.com/BKHV/risk_models/master/data/PD-data-test.csv -P {path_raw_data}")
+19	        LOGGER.debug("Test dataframe successfully loaded.")
+
+--------------------------------------------------
+>> Issue: [B605:start_process_with_a_shell] Starting a process with a shell, possible injection detected, security issue.
+   Severity: High   Confidence: High
+   Location: ./src/data/download.py:21
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b605_start_process_with_a_shell.html
+20	    if rewrite or not path_desc.exists():
+21	        os.system(f"wget https://raw.githubusercontent.com/BKHV/risk_models/master/data/PD-data-desc.csv -P {path_raw_data}")
+22	        LOGGER.debug("Description dataframe successfully loaded.")
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   Location: ./src/models/threshold_tuning.py:13
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b101_assert_used.html
+12	def _get_optimal_threshold_by_accuracy(probs, labels):
+13	    assert len(probs) == len(labels)
+14	    n = len(probs)
+
+--------------------------------------------------
+
+Code scanned:
+	Total lines of code: 426
+	Total lines skipped (#nosec): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0.0
+		Low: 1.0
+		Medium: 0.0
+		High: 3.0
+	Total issues (by confidence):
+		Undefined: 0.0
+		Low: 0.0
+		Medium: 0.0
+		High: 4.0
+Files skipped (0):
