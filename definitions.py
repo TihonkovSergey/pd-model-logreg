@@ -13,11 +13,11 @@ DATA_DIR.mkdir(exist_ok=True)
 
 SEED = 0
 
-USE_PRECALC = True
+USE_PRECALC = True  # if True some calculations will not be performed
 
-N_SPLITS = 5
-N_FEATURES_FR = 15
-N_FEATURES_NFR = 10
+N_SPLITS = 5  # number of splits in cross validation
+N_FEATURES_FR = 15  # number of features for data with financial report
+N_FEATURES_NFR = 10  # number of features for data without financial report
 
 THRESHOLD_TUNING_N_SAMPLES = 100
 THRESHOLD_TUNING_N_ITERS = 20
