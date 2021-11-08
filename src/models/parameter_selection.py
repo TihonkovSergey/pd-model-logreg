@@ -12,8 +12,7 @@ def get_best_logreg_params(X, y, param_grid, use_precalc=True, financial_report=
     if use_precalc:
         if financial_report:
             return None, {'C': 0.65, 'class_weight': None}
-        else:
-            return None, {'C': 0.8, 'class_weight': None}
+        return None, {'C': 0.8, 'class_weight': None}
 
     cv = StratifiedKFold(
         n_splits=5,
