@@ -1,6 +1,8 @@
-import pandas as pd
-from definitions import ROOT_DIR
 from pathlib import Path
+
+import pandas as pd
+
+from definitions import ROOT_DIR
 
 
 def get_train():
