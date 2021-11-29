@@ -63,7 +63,6 @@ def get_optimal_threshold(df, model, financial_report=False):
         accuracy_matrix.append(acc_list)
 
     optimal_threshold = np.median(threshold_list)
-    LOGGER.debug(f"Optimal threshold is {optimal_threshold:.3f}")
 
     fig = plt.figure(figsize=(18, 12))
     plt.vlines(optimal_threshold, 0.5, 0.75, colors='black',

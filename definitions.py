@@ -31,6 +31,6 @@ logging.basicConfig(filename=LOG_PATH,
                     filemode='a',
                     format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
                     datefmt='%H:%M:%S',
-                    level=logging.DEBUG)
+                    level=logging.INFO)
 LOGGER = logging.getLogger("Main_Logger")
 
