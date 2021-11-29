@@ -6,19 +6,20 @@ from definitions import DATA_DIR
 from definitions import LOGGER
 
 
-def prepare_dataset(train_df, test_df):
+def prepare_dataset(train_df, test_df, load_from_disk=True):
     prepared_data_dir = DATA_DIR.joinpath("prepared")
     path_train_data_with_financial_report = prepared_data_dir.joinpath('prepared_train_with_financial_report.csv')
     path_train_data_without_financial_report = prepared_data_dir.joinpath('prepared_train_without_financial_report.csv')
     path_test_data = prepared_data_dir.joinpath('prepared_test.csv')
 
-    if path_train_data_with_financial_report.exists() \
+    if load_from_disk \
+            and path_train_data_with_financial_report.exists() \
             and path_train_data_without_financial_report.exists() \
             and path_test_data.exists():
         train_with_fr = pd.read_csv(path_train_data_with_financial_report)
         train_without_fr = pd.read_csv(path_train_data_without_financial_report)
         test = pd.read_csv(path_test_data)
-        LOGGER.debug("Data successfully loaded from disk.")
+        LOGGER.info("Data successfully loaded from disk.")
         return train_with_fr, train_without_fr, test
 
     # удалим уникальный для каждое строки record_id
@@ -129,13 +130,13 @@ def prepare_dataset(train_df, test_df):
 
     train_without_fr = train[train_df['ar_revenue'].isna()]
     train_without_fr.dropna(axis=1, inplace=True)
-    LOGGER.debug("Data successfully prepared.")
+    LOGGER.info("Data successfully prepared.")
 
     prepared_data_dir.mkdir(exist_ok=True)
-    train_with_fr.to_csv(path_train_data_with_financial_report)
-    train_without_fr.to_csv(path_train_data_without_financial_report)
-    test.to_csv(path_test_data)
-    LOGGER.debug("Prepared data successfully saved.")
+    train_with_fr.to_csv(path_train_data_with_financial_report, index=False)
+    train_without_fr.to_csv(path_train_data_without_financial_report, index=False)
+    test.to_csv(path_test_data, index=False)
+    LOGGER.info("Prepared data successfully saved.")
 
     return train_with_fr, train_without_fr, test
 

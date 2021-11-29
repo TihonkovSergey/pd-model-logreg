@@ -13,14 +13,10 @@ def download_data(rewrite=False):
 
     if rewrite or not path_train.exists():
         os.system(f"wget https://raw.githubusercontent.com/BKHV/risk_models/master/data/PD-data-train.csv -P {path_raw_data}")
-        LOGGER.debug("Train dataframe successfully loaded.")
+        LOGGER.info("Train dataframe successfully loaded.")
     if rewrite or not path_test.exists():
         os.system(f"wget https://raw.githubusercontent.com/BKHV/risk_models/master/data/PD-data-test.csv -P {path_raw_data}")
-        LOGGER.debug("Test dataframe successfully loaded.")
+        LOGGER.info("Test dataframe successfully loaded.")
     if rewrite or not path_desc.exists():
         os.system(f"wget https://raw.githubusercontent.com/BKHV/risk_models/master/data/PD-data-desc.csv -P {path_raw_data}")
-        LOGGER.debug("Description dataframe successfully loaded.")
-
-
-if __name__ == '__main__':
-    download_data(rewrite=True)
+        LOGGER.info("Description dataframe successfully loaded.")

@@ -1,3 +1,5 @@
+from datetime import datetime
+
 import numpy as np
 import pandas as pd
 import scorecardpy as sc
@@ -17,18 +19,20 @@ from src.models.parameter_selection import validate_logreg
 from src.models.threshold_tuning import get_optimal_threshold
 
 if __name__ == '__main__':
+    start_time = datetime.now()
+
     # download data
-    LOGGER.debug("Download data...")
+    LOGGER.info("Download data...")
     download_data()
 
     # Getting original dataset
-    LOGGER.debug("Getting original dataset...")
+    LOGGER.info("Getting original dataset...")
     train_df = get_train()
     test_df = get_test()
 
     # Feature extraction
     # Build new features and split dataset for 2 parts: companies with and without financial report
-    LOGGER.debug(
+    LOGGER.info(
         "Prepare data. Build new features and split dataset for 2 parts: companies with and without financial report")
     train_df_fr, train_df_nofr, test = prepare_dataset(train_df, test_df)
 
@@ -36,16 +40,17 @@ if __name__ == '__main__':
     train_fr, val_fr = train_test_split(train_df_fr, test_size=0.2, random_state=SEED)
 
     # WOE-transformation
-    LOGGER.debug("Calculate WOE-transformation...")
+    LOGGER.info("Calculate WOE-transformation...")
     train_nofr_woe, val_nofr_woe, bins_nofr = woe_transform(train_nofr, val_nofr)
     train_fr_woe, val_fr_woe, bins_fr = woe_transform(train_fr, val_fr)
 
     # Feature selection
-    LOGGER.debug("Calculate best features...")
+    LOGGER.info("Calculate best features...")
     best_features_nofr = best_logreg_features(train_nofr_woe.drop(TARGET_NAME, axis=1),
                                               train_nofr_woe[TARGET_NAME],
                                               use_precalc=USE_PRECALC,
                                               financial_report=False)
+    LOGGER.info(f"Best features nofr is: {best_features_nofr}")
     X_train_nofr = train_nofr_woe.drop(TARGET_NAME, axis=1)[best_features_nofr]
     y_train_nofr = train_nofr_woe[TARGET_NAME]
     X_val_nofr = val_nofr_woe.drop(TARGET_NAME, axis=1)[best_features_nofr]
@@ -55,13 +60,14 @@ if __name__ == '__main__':
                                             train_fr_woe[TARGET_NAME],
                                             use_precalc=USE_PRECALC,
                                             financial_report=True)
+    LOGGER.info(f"Best features fr is: {best_features_fr}")
     X_train_fr = train_fr_woe.drop(TARGET_NAME, axis=1)[best_features_fr]
     y_train_fr = train_fr_woe[TARGET_NAME]
     X_val_fr = val_fr_woe.drop(TARGET_NAME, axis=1)[best_features_fr]
     y_val_fr = val_fr_woe[TARGET_NAME]
 
     # Logreg hyperparameters tuning
-    LOGGER.debug("Calculate best logreg parameters...")
+    LOGGER.info("Calculate best logreg parameters...")
     param_grid = {
         'C': np.arange(0.0, 5, 0.05),
         'class_weight': [None, 'balanced']
@@ -80,7 +86,7 @@ if __name__ == '__main__':
                                                            )
 
     # Validation
-    LOGGER.debug("Validate best models")
+    LOGGER.info("Validate best models")
     train_score_nofr, val_score_nofr = validate_logreg(X_train_nofr,
                                                        y_train_nofr,
                                                        X_val_nofr,
@@ -100,7 +106,7 @@ Train score: {train_score_nofr:.4f}, validation score: {val_score_nofr:.4f}""")
     Train score: {train_score_fr:.4f}, validation score: {val_score_fr:.4f}""")
 
     # Threshold tuning
-    LOGGER.debug("Calculate optimal thresholds.")
+    LOGGER.info("Calculate optimal thresholds.")
     log_reg = LogisticRegression(random_state=SEED, **best_params_nofr)
     log_reg.fit(X_train_nofr[best_features_nofr], y_train_nofr)
     optimal_threshold_nofr = get_optimal_threshold(val_nofr_woe[best_features_nofr + [TARGET_NAME]],
@@ -158,4 +164,6 @@ Train score: {train_score_nofr:.4f}, validation score: {val_score_nofr:.4f}""")
     result_df = test[['id']]
     result_df['target'] = result_df['id'].apply(lambda x: result_dict[x])
     result_df.to_csv(REPORT_DIR.joinpath('submit.csv'), index=False, sep=';')
-    LOGGER.debug(f"Submit dataframe saved into {REPORT_DIR} with shape {result_df.shape}")
+    LOGGER.info(f"Submit dataframe saved into {REPORT_DIR} with shape {result_df.shape}")
+
+    LOGGER.info(f"Execution time: {datetime.now() - start_time}")
