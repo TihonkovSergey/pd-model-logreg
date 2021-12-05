@@ -12,11 +12,14 @@ def download_data(rewrite=False):
     path_desc = path_raw_data.joinpath("PD-data-desc.csv")
 
     if rewrite or not path_train.exists():
-        os.system(f"wget https://raw.githubusercontent.com/BKHV/risk_models/master/data/PD-data-train.csv -P {path_raw_data}")
+        os.system(
+            f"wget https://raw.githubusercontent.com/BKHV/risk_models/master/data/PD-data-train.csv -P {path_raw_data}")
         LOGGER.info("Train dataframe successfully loaded.")
     if rewrite or not path_test.exists():
-        os.system(f"wget https://raw.githubusercontent.com/BKHV/risk_models/master/data/PD-data-test.csv -P {path_raw_data}")
+        os.system(
+            f"wget https://raw.githubusercontent.com/BKHV/risk_models/master/data/PD-data-test.csv -P {path_raw_data}")
         LOGGER.info("Test dataframe successfully loaded.")
     if rewrite or not path_desc.exists():
-        os.system(f"wget https://raw.githubusercontent.com/BKHV/risk_models/master/data/PD-data-desc.csv -P {path_raw_data}")
+        os.system(
+            f"wget https://raw.githubusercontent.com/BKHV/risk_models/master/data/PD-data-desc.csv -P {path_raw_data}")
         LOGGER.info("Description dataframe successfully loaded.")
